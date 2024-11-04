@@ -1,6 +1,20 @@
-// import the Media class:
+const Media = require('./Media');
 
-// create your Music class:
+class Music extends Media {
+    constructor(title, year, genre, artist, album, length) {
+        super(title, year, genre);
+        this.artist = artist;
+        this.album = album;
+        this.length = length;
+    }
 
-// don't change below
+    summary() {
+        return `Title: ${this.title}, Artist: ${this.artist}, Year: ${this.year}, Genre: ${this.genre}, Length: ${this.length} seconds`;
+    }
+
+    static shortestAlbum(musics) {
+        return musics.reduce((prev, current) => (prev.length < current.length) ? prev : current);
+    }
+}
+
 module.exports = Music;
